@@ -40,7 +40,14 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
       </Head>
 
     <section className={styles.latestEpisodes}>
-      <h2>Últimos lançamentos</h2>
+      <div className={styles.titleContainer}>
+        <h2>Últimos lançamentos</h2>
+        <label className={styles.switch}>
+        <input type="checkbox" />
+        <span className={styles.toggle}></span>
+        </label>
+      </div>
+      
       <ul>
         {latestEpisodes.map((episode, index) => {
           return (

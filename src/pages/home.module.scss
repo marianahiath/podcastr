@@ -30,6 +30,73 @@
 }
 
 .latestEpisodes {
+    .titleContainer {
+        display:flex;
+        justify-content: space-between;
+
+        label {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .switch {
+            width: 3rem;
+            height: 1.1rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .switch input {
+            position: absolute;
+            margin-left: -9999px;
+            visibility: hidden;
+        }
+
+        .switch input + .toggle {
+            background-color: #d8d8d8;
+            width: inherit;
+            height: inherit;
+            border-radius: 2rem;
+            display: block;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+            transition: background .3s ease;
+        }
+
+        .switch input + .toggle::after {
+            content: '';
+            position: absolute;
+            top: -.2rem;
+            left: 0;
+            background-color: #fff;
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+            transition: transform .3s ease, background .3s ease, box-shadow .06s ease;
+        }
+
+        .switch input + .toggle:active::after, .switch input:active + .toggle::after {
+            box-shadow: 0 0 3px 12px rgba(0, 0, 0, .05);
+        }
+
+        .switch input:checked + .toggle:active::after, .switch input:checked:active + .toggle::after {
+            box-shadow: 0 0 3px 12px rgba(153, 115, 179, 0.15);
+        }
+
+        .switch input:checked + .toggle {
+            background-color: var(--purple-300);
+        }
+
+        .switch input:checked + .toggle::after {
+            background-color: var(--purple-400);
+            transform: translateX(1.5rem);
+        }
+    }
+
     ul {
         list-style: none;
         display: grid;
